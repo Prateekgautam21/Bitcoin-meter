@@ -4,7 +4,7 @@ import "./Table.css";
 class Table extends Component {
     render() {
 
-        let {eurRate, gbpRate, usdRate} = this.props;
+        let {eurRate, gbpRate, usdRate,prevE,prevG,prevU} = this.props;
         
         return (
             <div>
@@ -19,17 +19,17 @@ class Table extends Component {
             <tbody>
               <tr>
                 <td>Eur</td>
-                <td>0.0000</td>
+                <td>{prevE}</td>
                 <td>{eurRate}</td>
               </tr>
               <tr>
                 <td>Pnd</td>
-                <td>0.0000</td>
+                <td>{prevG}</td>
                 <td>{gbpRate}</td>
               </tr>
               <tr>
                 <td>Usd</td>
-                <td>0.0000</td>
+                <td>{prevU}</td>
                 <td>{usdRate}</td>
               </tr>
             </tbody>
