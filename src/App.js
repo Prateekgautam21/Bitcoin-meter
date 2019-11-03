@@ -38,14 +38,14 @@ class App extends Component{
 
       render(){
         
-        console.log('render ran');
-        console.log(this.state.previousvalueofbitcoin);
-        // console.log(this.state.previousvalueofbitcoin.currentvalueofbitcoin.bpi.EUR.rate);
-        console.log(this.state);
-        console.log('render ran');
+        // console.log('render ran');
+        // console.log(this.state.previousvalueofbitcoin);
+        // // console.log(this.state.previousvalueofbitcoin.currentvalueofbitcoin.bpi.EUR.rate);
+        // // console.log(this.state);
+        // console.log('render ran');
         
-        var {previousvalueofbitcoin} = this.state.previousvalueofbitcoin
-        console.log(previousvalueofbitcoin);
+        var previousvalueofbitcoin = this.state.previousvalueofbitcoin
+        // console.log(previousvalueofbitcoin);
         
         var {currentvalueofbitcoin} = this.state.currentvalueofbitcoin;
 
@@ -53,18 +53,31 @@ class App extends Component{
         let gbpRate = currentvalueofbitcoin ? currentvalueofbitcoin.bpi.GBP.rate: ''
         let usdRate = currentvalueofbitcoin ? currentvalueofbitcoin.bpi.USD.rate: ''
         
-        let eurPrevRate = previousvalueofbitcoin ? previousvalueofbitcoin.currentvalueofbitcoin.bpi.EUR.rate: ''
-        let gbpPrevRate = previousvalueofbitcoin ? previousvalueofbitcoin.currentvalueofbitcoin.bpi.GBP.rate: ''
-        let usdPrevRate = previousvalueofbitcoin ? previousvalueofbitcoin.currentvalueofbitcoin.bpi.USD.rate: ''
+        
+
+        for(var key in previousvalueofbitcoin) {
+          if(key == "currentvalueofbitcoin"){
+            // console.log(previousvalueofbitcoin.currentvalueofbitcoin.bpi.EUR.rate)
+            if(eurRate != eurPrevRate){
+              var eurPrevRate =  previousvalueofbitcoin.currentvalueofbitcoin.bpi.EUR.rate;
+              var gbpPrevRate =  previousvalueofbitcoin.currentvalueofbitcoin.bpi.GBP.rate;
+              var usdPrevRate =  previousvalueofbitcoin.currentvalueofbitcoin.bpi.USD.rate;
+            }
+            
+    
+          }
+          
+         }
 
         console.log(eurPrevRate);
         console.log(gbpPrevRate);
         console.log(usdPrevRate);
+        console.log("----------------")
 
         return (
           <div className="App">
             <h1>Bitcoin Monitor</h1>
-            <Table eurRate={eurRate} gbpRate={gbpRate} usdRate={usdRate} />
+            <Table prevE={eurPrevRate} prevG={gbpPrevRate} prevU={usdPrevRate} eurRate={eurRate} gbpRate={gbpRate} usdRate={usdRate} />
             <button onClick={this.componentDidMount.bind(this)}>Refresh</button>
           </div>
           )
