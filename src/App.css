@@ -1,8 +1,11 @@
 .App {
   text-align: center;
+  margin: 0px;
 }
+
 .App h1{
   background-color: orange;
   padding-bottom: 40px;
   padding-top: 30px;
+  margin-top: 0px;
 }

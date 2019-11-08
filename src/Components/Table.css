@@ -11,3 +11,14 @@ td,th{
     font-size: 1.2rem;
 }
 
+button{
+    margin-top: 20px;
+    background-color: darkgoldenrod;
+    color: white;
+    width: 100px;
+    height: 40px;
+    font-size: 1.2rem;
+    border: 1px solid darkgoldenrod;
+    border-radius: 5px 5px;
+    cursor: pointer;
+}
